@@ -28,7 +28,6 @@ _ = simul_config.pop("array_cable_bury_vessel")
     "config", (base_config, simul_config), ids=["separate", "simultaneous"]
 )
 def test_simulation_setup(config):
-
     sim = ArrayCableInstallation(config)
     assert sim.env
 
@@ -37,7 +36,6 @@ def test_simulation_setup(config):
     "config", (base_config, simul_config), ids=["separate", "simultaneous"]
 )
 def test_vessel_initialization(config):
-
     sim = ArrayCableInstallation(config)
     assert sim.install_vessel
     assert sim.install_vessel.cable_storage
@@ -53,7 +51,6 @@ def test_vessel_initialization(config):
     "weather", (None, test_weather), ids=["no_weather", "test_weather"]
 )
 def test_for_complete_logging(config, weather):
-
     sim = ArrayCableInstallation(config, weather=weather)
     sim.run()
 
@@ -72,7 +69,6 @@ def test_for_complete_logging(config, weather):
 
 
 def test_simultaneous_speed_kwargs():
-
     sim = ArrayCableInstallation(simul_config)
     sim.run()
     baseline = sim.total_phase_time
@@ -89,7 +85,6 @@ def test_simultaneous_speed_kwargs():
 
 
 def test_separate_speed_kwargs():
-
     sim = ArrayCableInstallation(base_config)
     sim.run()
     df = pd.DataFrame(sim.env.actions)
@@ -114,7 +109,6 @@ def test_separate_speed_kwargs():
 
 
 def test_kwargs_for_array_install():
-
     sim = ArrayCableInstallation(base_config)
     sim.run()
     baseline = sim.total_phase_time
@@ -131,7 +125,6 @@ def test_kwargs_for_array_install():
     failed = []
 
     for kw in keywords:
-
         default = pt[kw]
 
         if "speed" in kw:
@@ -163,7 +156,6 @@ def test_kwargs_for_array_install():
 
 
 def test_kwargs_for_array_install_in_ProjectManager():
-
     base = deepcopy(base_config)
     base["install_phases"] = ["ArrayCableInstallation"]
 
@@ -183,7 +175,6 @@ def test_kwargs_for_array_install_in_ProjectManager():
     failed = []
 
     for kw in keywords:
-
         default = pt[kw]
 
         if "speed" in kw:

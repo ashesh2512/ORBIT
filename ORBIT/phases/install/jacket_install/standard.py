@@ -111,9 +111,7 @@ class JacketInstallation(InstallPhase):
         ]
 
     def initialize_substructure_delivery(self):
-        """
-
-        """
+        """ """
 
         jacket = Jacket(**self.config["jacket"])
 
@@ -132,7 +130,6 @@ class JacketInstallation(InstallPhase):
         self.supply_chain = self.config.get("jacket_supply_chain", {})
 
         if self.supply_chain.get("enabled", False):
-
             items = [jacket, self.tp] if self.tp else [jacket]
             delivery_time = self.supply_chain.get(
                 "substructure_delivery_time", 168
@@ -373,7 +370,6 @@ def solo_install_jackets(
             vessel.at_site = True
 
         if vessel.at_site:
-
             if vessel.storage.items:
                 # Prep for jacket install
                 yield prep_for_site_operations(
@@ -438,9 +434,7 @@ def install_jackets_from_queue(
             wtiv.at_site = True
 
         if wtiv.at_site:
-
             if queue.vessel:
-
                 # Prep for jacket install
                 yield prep_for_site_operations(
                     wtiv, survey_required=True, **kwargs

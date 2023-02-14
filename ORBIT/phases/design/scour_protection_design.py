@@ -115,7 +115,7 @@ class ScourProtectionDesign(DesignPhase):
         r = self.diameter / 2 + self.scour_depth / np.tan(np.radians(self.phi))
 
         volume = (
-            np.pi * self.protection_depth * (r ** 2 - (self.diameter / 2) ** 2)
+            np.pi * self.protection_depth * (r**2 - (self.diameter / 2) ** 2)
         )
 
         self.scour_protection_tonnes = ceil(

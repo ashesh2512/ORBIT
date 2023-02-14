@@ -61,7 +61,6 @@ def test_full_run_logging(weather):
     ],
 )
 def test_kwargs(anchor, key):
-
     new = deepcopy(config)
     new["mooring_system"]["anchor_type"] = anchor
 
@@ -74,7 +73,6 @@ def test_kwargs(anchor, key):
     failed = []
 
     for kw in keywords:
-
         default = pt[kw]
         kwargs = {kw: default + 2}
 
@@ -103,7 +101,6 @@ def test_kwargs(anchor, key):
     ],
 )
 def test_kwargs_in_ProjectManager(anchor, key):
-
     base = deepcopy(config)
     base["mooring_system"]["anchor_type"] = anchor
     base["install_phases"] = ["MooringSystemInstallation"]
@@ -117,7 +114,6 @@ def test_kwargs_in_ProjectManager(anchor, key):
     failed = []
 
     for kw in keywords:
-
         default = pt[kw]
         processes = {kw: default + 2}
         new_config = deepcopy(base)

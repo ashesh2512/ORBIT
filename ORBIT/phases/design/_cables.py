@@ -333,7 +333,7 @@ class CableSystem(DesignPhase):
 
             else:
                 self.touchdown = depth * 0.3
-                #TODO: Update this scaling function - should be closer to cable bend radius.  Unrealistic for deep water
+                # TODO: Update this scaling function - should be closer to cable bend radius.  Unrealistic for deep water
 
     @staticmethod
     def _catenary(a, *data):

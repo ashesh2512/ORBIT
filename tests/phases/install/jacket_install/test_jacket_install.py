@@ -29,7 +29,6 @@ config_multi_feeder["num_feeders"] = 2
     ids=["wtiv_only", "single_feeder", "multi_feeder"],
 )
 def test_simulation_setup(config):
-
     sim = JacketInstallation(config)
     assert sim.config == config
     assert sim.env
@@ -50,7 +49,6 @@ def test_simulation_setup(config):
     ids=["wtiv_only", "single_feeder", "multi_feeder"],
 )
 def test_vessel_initialization(config):
-
     sim = JacketInstallation(config)
     assert sim.wtiv
     assert sim.wtiv.jacksys
@@ -74,7 +72,6 @@ def test_vessel_initialization(config):
     "weather", (None, test_weather), ids=["no_weather", "test_weather"]
 )
 def test_for_complete_logging(weather, config):
-
     sim = JacketInstallation(config, weather=weather)
     sim.run()
 
@@ -97,7 +94,6 @@ def test_for_complete_logging(weather, config):
     ids=["wtiv_only", "single_feeder", "multi_feeder"],
 )
 def test_num_legs(config):
-
     base = JacketInstallation(config)
     base.run()
 
@@ -116,7 +112,6 @@ def test_num_legs(config):
     ids=["wtiv_only", "single_feeder", "multi_feeder"],
 )
 def test_foundation_type(config):
-
     base = JacketInstallation(config)
     base.run()
 
@@ -134,7 +129,6 @@ def test_foundation_type(config):
 
 
 def test_kwargs_piles():
-
     sim = JacketInstallation(config_wtiv)
     sim.run()
     baseline = sim.total_phase_time
@@ -154,7 +148,6 @@ def test_kwargs_piles():
     failed = []
 
     for kw in keywords:
-
         default = pt[kw]
         kwargs = {kw: default + 2}
 
@@ -176,7 +169,6 @@ def test_kwargs_piles():
 
 
 def test_kwargs_suction():
-
     config_wtiv_suction = deepcopy(config_wtiv)
     config_wtiv_suction["jacket"]["foundation_type"] = "suction"
 
@@ -197,7 +189,6 @@ def test_kwargs_suction():
     failed = []
 
     for kw in keywords:
-
         default = pt[kw]
         kwargs = {kw: default + 2}
 

@@ -15,7 +15,6 @@ sys.path.insert(0, os.path.abspath(".."))
 
 import ORBIT
 
-
 # -- Project information -----------------------------------------------------
 project = "ORBIT"
 copyright = "2020, National Renewable Energy Lab"

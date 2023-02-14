@@ -33,7 +33,6 @@ floating = extract_library_specs("config", "floating_turbine_install_feeder")
     ids=["wtiv_only", "single_feeder", "multi_feeder", "floating"],
 )
 def test_simulation_setup(config):
-
     sim = TurbineInstallation(config)
     assert sim.config == config
     assert sim.env
@@ -56,7 +55,6 @@ def test_simulation_setup(config):
     ids=["wtiv_only", "single_feeder", "multi_feeder", "floating"],
 )
 def test_vessel_creation(config):
-
     sim = TurbineInstallation(config)
     assert sim.wtiv
     assert sim.wtiv.crane
@@ -80,7 +78,6 @@ def test_vessel_creation(config):
     "config, expected", [(config_wtiv, 72), (config_long_mobilize, 14 * 24)]
 )
 def test_vessel_mobilize(config, expected):
-
     sim = TurbineInstallation(config)
     assert sim.wtiv
 
@@ -97,7 +94,6 @@ def test_vessel_mobilize(config, expected):
     "weather", (None, test_weather), ids=["no_weather", "test_weather"]
 )
 def test_for_complete_logging(weather, config):
-
     sim = TurbineInstallation(config, weather=weather)
     sim.run()
 
@@ -120,7 +116,6 @@ def test_for_complete_logging(weather, config):
     ids=["wtiv_only", "single_feeder", "multi_feeder", "floating"],
 )
 def test_for_complete_installation(config):
-
     sim = TurbineInstallation(config)
     sim.run()
 
@@ -131,7 +126,6 @@ def test_for_complete_installation(config):
 
 
 def test_kwargs():
-
     sim = TurbineInstallation(config_wtiv)
     sim.run()
     baseline = sim.total_phase_time
@@ -153,7 +147,6 @@ def test_kwargs():
     failed = []
 
     for kw in keywords:
-
         default = pt[kw]
         kwargs = {kw: default + 2}
 
@@ -175,7 +168,6 @@ def test_kwargs():
 
 
 def test_kwargs_in_ProjectManager():
-
     base = deepcopy(config_wtiv)
     base["install_phases"] = ["TurbineInstallation"]
 
@@ -200,7 +192,6 @@ def test_kwargs_in_ProjectManager():
     failed = []
 
     for kw in keywords:
-
         default = pt[kw]
         processes = {kw: default + 2}
 
@@ -225,7 +216,6 @@ def test_kwargs_in_ProjectManager():
 
 
 def test_multiple_tower_sections():
-
     sim = TurbineInstallation(config_wtiv)
     sim.run()
     baseline = len(
@@ -245,7 +235,6 @@ def test_multiple_tower_sections():
 
     df = pd.DataFrame(sim.env.actions)
     for vessel in df["agent"].unique():
-
         vl = df[df["agent"] == vessel].copy()
         vl = vl.assign(shift=(vl["time"] - vl["time"].shift(1)))
 
